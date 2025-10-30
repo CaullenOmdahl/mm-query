@@ -1,0 +1,64 @@
+[project]
+name = "mmmegamarket-mcp"
+version = "0.1.3"
+description = "MCP server for MM retail and wholesale product data extraction"
+authors = [
+    {name = "MM Mega Market MCP Contributors"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["mcp", "model-context-protocol", "mm-mega-market", "vietnam", "price-comparison", "b2b", "b2c", "wholesale", "retail"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "requests>=2.31.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+mmmegamarket-mcp = "mmmegamarket.server:main"
+
+[project.urls]
+Homepage = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool"
+Repository = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool"
+Issues = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mmmegamarket"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true

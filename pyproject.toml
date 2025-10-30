@@ -30,9 +30,9 @@ dependencies = [
 mmmegamarket-mcp = "mmmegamarket.server:main"
 
 [project.urls]
-Homepage = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool"
-Repository = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool"
-Issues = "https://github.com/CaullenOmdahl/MegaMarketPriceExtractorTool/issues"
+Homepage = "https://github.com/CaullenOmdahl/mm-query"
+Repository = "https://github.com/CaullenOmdahl/mm-query"
+Issues = "https://github.com/CaullenOmdahl/mm-query/issues"
 
 [project.optional-dependencies]
 dev = [

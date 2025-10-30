@@ -1,0 +1,39 @@
+# Smithery.ai Configuration for MM Query
+# MCP server for MM retail and wholesale platforms
+
+startCommand:
+  type: stdio
+
+  # Optional B2B authentication configuration
+  configSchema:
+    type: object
+    properties:
+      MMPRO_USERNAME:
+        type: string
+        description: "B2B account email (optional - only needed for wholesale features)"
+        title: "B2B Username"
+      MMPRO_PASSWORD:
+        type: string
+        description: "B2B account password (optional - retail features work without authentication)"
+        title: "B2B Password"
+        format: "password"
+
+  # Command to start the MCP server
+  commandFunction: |
+    (config) => {
+      const env = {};
+
+      // Only add B2B credentials if provided
+      if (config.MMPRO_USERNAME) {
+        env.MMPRO_USERNAME = config.MMPRO_USERNAME;
+      }
+      if (config.MMPRO_PASSWORD) {
+        env.MMPRO_PASSWORD = config.MMPRO_PASSWORD;
+      }
+
+      return {
+        command: 'uvx',
+        args: ['mmmegamarket-mcp'],
+        env: env
+      };
+    }
